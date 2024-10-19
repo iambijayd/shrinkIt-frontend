@@ -1,6 +1,7 @@
 body{
     text-align: center;
 }
+
 h1{
     color: rgb(190, 245, 7);
     margin-bottom: 0;
@@ -35,7 +36,38 @@ button{
 }
 button:hover{
     background-color: black;
+    
 }
 div{
     background-color: gray;
+    padding: 20px;
 }
+ /* desktop screen as default style */
+
+
+/* For mobile */
+
+@media (max-width:600px){
+    input {
+        width: 90%;  /* make input field wider on mobile for better usability */
+        font-size: 14px; /* slightly smaller font size for mobile */
+        padding: 10px 20px 10px 15px;
+    }
+    button{
+        width: 60%;
+        max-width: 100%;
+        padding: 10px;
+    }
+    h1{
+        font-size: 24px;
+    }
+    p{
+        font-size: 16px;
+    }
+    div{
+        padding: 10px;
+        
+    }
+}
+
+ 
