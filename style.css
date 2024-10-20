@@ -69,5 +69,8 @@ div{
         
     }
 }
-
+/*For signup/login */
+a{
+    text-decoration: none;
+}
  
