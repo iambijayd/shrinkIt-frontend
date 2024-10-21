@@ -1,0 +1,89 @@
+body{
+    text-align: center;
+}
+
+h1{
+    color: rgb(190, 245, 7);
+    margin-bottom: 0;
+    
+}
+p{
+    margin-top: 0;
+    color: aqua;   
+}
+input{
+
+    border-radius: 25px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    padding: 12px 40px 12px 20px;
+    width: 70%;
+    outline: none;
+    border: 1px solid #ccc;
+
+}
+.checkbox-container {
+    text-align:center;
+    padding: 10px;
+    
+
+    
+    
+}
+.checkbox-container input{
+    margin-left: 60px;
+    margin-right: 10px;
+    width: 60px;
+    height: 18px;
+}
+button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 5px;
+    
+}
+button:hover{
+    background-color: black;
+    
+}
+div{
+    background-color: gray;
+    padding: 20px;
+}
+ /* desktop screen as default style */
+
+
+/* For mobile */
+
+@media (max-width:600px){
+    input {
+        width: 90%;  /* make input field wider on mobile for better usability */
+        font-size: 14px; /* slightly smaller font size for mobile */
+        padding: 10px 20px 10px 15px;
+    }
+    button{
+        width: 60%;
+        max-width: 100%;
+        padding: 10px;
+    }
+    h1{
+        font-size: 24px;
+    }
+    p{
+        font-size: 16px;
+    }
+    div{
+        padding: 10px;
+        
+    }
+}
+/*For signup/login */
+a{
+    text-decoration: none;
+}
+ 
