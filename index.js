@@ -1,4 +1,4 @@
-const shortenBtn=document.getElementById("short-btn");
+const shortenBtn=document.getElementById("shorten-btn");
 const urlInput=document.getElementById("url-input");
 const shortUrlInput=document.getElementById("short-url");
 const copyBtn=document.getElementById("copy-btn");
