@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <div class="input-container">
-    <h1>URL SHORTNER</h1>
-    <P>Shortner your long url</P>
-    
-    <input type="text" id="url-input" placeholder="long url">
-    <input type="text" id="short-url" placeholder="shortened url" readonly>
-    <br>
-    <button id="shorten-btn">Shorten</button>
-    <button id="copy-btn">Copy</button>
-    </div>
-    <script src="index.js"></script>
+    <div class="container">
+    <h1><u>Welcome To URL Shortner App</u></h1>
+    <p>URL Shortner app is designed to shorten the 
+        long and <br>incomprehensible url and generate the short and meaningful url.</p>
+    <p >Let`s get started,</p>
+
+    <button class="login" id="login" > Login</button><br>
+    <button class="signup" id="signup" > Signup</button>
+     </div>
+     <script>
+        //make the whole button clickable
+        document.getElementById("login").addEventListener("click",function(){
+            window.location.href="login.html"
+            //it is used to change/link the new url on clicking 
+        })
+
+        document.getElementById("signup").addEventListener("click",function(){
+            window.location.href="signup.html"
+        })
+     </script>
 </body>
 </html>
