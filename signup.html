@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="signup.css"> <!-- Optional: Add CSS for styling -->
+</head>
+<body>
+    <div class="form-container">
+        <h2>Signup</h2>
+        <form id="signup-form">
+            <input type="text" id="signup-username" placeholder="Enter your username" required><br>
+            <input type="email" id="signup-email" placeholder="Enter your email" required><br>
+            <input type="password" id="signup-password" placeholder="Enter your password" required>
+
+            <div class="checkbox-container">  
+            <input type="checkbox"  id="showPassword">
+            <label for="showPassword"> Show Password</label>
+            </div>
+            <button type="submit">Signup</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+
+    <script>
+        // Handle signup submission (simulating signup for now)
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Simulate signup by setting authentication flag
+            localStorage.setItem('authenticated', true);
+
+            // Redirect to home page (or actual app page)
+            window.location.href = 'index.html';
+        });
+
+
+        const passwordField=document.getElementById("signup-password");
+        const showPasswordCheckbox= document.getElementById("showPassword");
+        showPasswordCheckbox.addEventListener("click",function(){
+            if(showPasswordCheckbox.checked){
+                passwordField.type="text";   //show password
+            }
+            else{
+                passwordField.type="password";  //hide password
+            }
+        })
+
+
+
+        document.getElementById('signup-form').addEventListener('submit', async function(e) {
+            e.preventDefault();  // Prevent form from refreshing the page
+    
+            // Collect form data
+            const username = document.getElementById('signup-username').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+    
+            // Send a POST request to the backend API
+            const response = await fetch('/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username,
+                    email: email,
+                    password: password
+                })
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                // Store token or some identifier in localStorage
+                localStorage.setItem('token', data.token);
+                window.location.href = 'index.html';  // Redirect to another page
+            } else {
+                alert(data.message || 'Signup failed');
+            }
+        });
+    </script>
+</body>
+</html>
