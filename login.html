@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css"> <!-- Optional: Add CSS for styling -->
+</head>
+<body>
+    
+    <div class="form-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Enter your email" required>
+            <input type="password" id="login-password" placeholder="Enter your password" required>
+            
+            <div class="checkbox-container">
+            <input type="checkbox" id="showPassword">
+            <label for="showPassword">Show Password</label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Signup here</a></p>
+    </div>
+
+    <script>
+        // Handle login submission (simulating login for now)
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Simulate login by setting authentication flag
+            localStorage.setItem('authenticated', true);
+
+            // Redirect to home page (or actual app page)
+            window.location.href = 'home.html';
+        });
+
+
+        //show password
+
+        const passwordField=document.getElementById("login-password");
+        const showPasswordCheckbox= document.getElementById("showPassword");
+        showPasswordCheckbox.addEventListener("click",function(){
+            if(showPasswordCheckbox.checked){
+                passwordField.type="text";   //show password
+            }
+            else{
+                passwordField.type="password";  //hide password
+            }
+        })
+
+
+
+        // Handle login submission
+        document.getElementById('login-form').addEventListener('submit', async function(e) {
+            e.preventDefault();  // Prevents page reload
+
+            // Collect form data
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            // Send login request to backend API
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Login successful - Store token or session in localStorage
+                localStorage.setItem('token', data.token);  // Assuming backend sends a token
+                window.location.href = 'home.html';  // Redirect to home page
+            } else {
+                alert(data.message || 'Login failed');
+            }
+        });
+
+    </script>
+</body>
+</html>
